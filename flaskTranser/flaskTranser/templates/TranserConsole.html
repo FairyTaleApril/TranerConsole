@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>TranerConsole</title>
+		<script type="application/javascript" src="../static/js/jquery.js"></script>
+		<script type="text/javascript" src="../static/js/mqtt.min.js"></script>
+		<script type="text/javascript" src="../static/js/transer.js"></script>
+		<link rel="stylesheet" type="text/css" href="../static/css/transer.css"/>
+	</head>
+	
+	<!--<body style='background:url("/video_feed0") top left; background-size:100%;'>-->
+	
+	<body style="background-image: url(../static/img/BGP.png);">
+			<div id="header">
+				<div id="imgprocess" class="headerbtn" style="background-image: url(../static/img/imgprocess.png);" onclick="onclick_imgprocess()"></div>
+				<div id="MechArm" class="headerbtn" style="background-image: url(../static/img/MechArm_menu.png);" onclick="showArmMenu()"></div>
+				<div id="transform" class="headerbtn" style="background-image: url(../static/img/transform_expand.png);" onclick="onclick_transform()"></div>
+				<div id="imgrecognition" class="headerbtn" style="background-image: url(../static/img/imgrecognition.png);" onclick="onclick_imgrecognition()"></div>
+				<div id="tools" class="headerbtn" style="background-image: url(../static/img/offtool.png);" onclick="showTools()"></div>
+				<div id="camera" style="background-image: url(../static/img/camera.png);" class="headerbtn" onclick="onclick_camera()"></div>
+			</div>
+			
+			<div id="bar">
+				<div id="menubar">
+					<div id="Arm_stretch" class="Arm" style="background-image: url(../static/img/MechArm_stretch.png);" onclick="Arm_stretch()"></div>
+					<div id="Arm_retrieve" class="Arm" style="background-image: url(../static/img/MechArm_retrieve.png);" onclick="Arm_retrieve()"></div>
+					<div id="Arm_grab" class="Arm" style="background-image: url(../static/img/MechArm_grab.png);" onclick="Arm_grab()"></div>
+				</div>
+				
+				<div id="toolbar">
+					<div id="tool1" class="tool" style="background-image: url(../static/img/offtool.png);" onclick="offTool()"></div>
+					<div id="tool2" class="tool" style="background-image: url(../static/img/saw.png);" onclick="selectTool1()"></div>
+					<div id="tool3" class="tool" style="background-image: url(../static/img/pump.png);" onclick="selectTool2()"></div>
+				</div>
+			</div>
+
+			<div id="container">
+				<div id="gyroscope">
+					<div id="attitudemarker" style="background-image: url(../static/img/gyroscope.png);"></div>
+				</div>
+				
+				<div id="angleinfo">
+					<label id="angleindex">Yaw:<br>Pitch:<br>Roll:<br>Depth:</label>
+					<div id="anginfo">
+						<font></font><br>
+						<font></font><br>
+						<font></font><br>
+						<font></font>
+					</div>
+				</div>
+				
+				<div id="textarea" readonly>
+					<font></font><br>
+					<font></font><br>
+					<font></font><br>
+					<font></font><br>
+					<font></font><br>
+					<font></font><br>
+					<font></font>
+				</div>
+			</div>
+
+
+			<div id="footer">
+				<div id="Deplable">Depth&nbsp;:&nbsp;<span id="depvalue">0</span></div>
+				<div id="Spdlable">Speed&nbsp;:&nbsp;<span id="spevalue">0</span></div>
+				<div id="silders">
+					<input id="depthslider" type="range" name="points" min="-4" max="4" step="1" value="0" onchange="change_depslider()"/>
+					<input id="speedslider" type="range" name="points" min="0" max="400" step="100" value="0" onchange="change_speslider()"/>
+				</div>
+				
+				<div id="fbbtnarea" class="direactionbtn">
+					<div id="forwardbtn" class="fbbtn" onclick="onclick_forwardbtn()"></div>
+					<div id="backwardbtn" class="fbbtn" onclick="onclick_backwardbtn()"></div>
+				</div>
+
+				<div id="lrbtnarea" class="direactionbtn">
+					<div id="leftbtn" class="lrbtn" onclick="onclick_leftbtn()"></div>
+					<div id="rightbtn" class="lrbtn" onclick="onclick_rightbtn()"></div>
+				</div>
+
+				<div id="rollover" onclick="onclick_Rollover()">侧翻</div>
+				<div id="reset" onclick="onclick_Reset()">复位</div>
+			</div>
+		</div>
+	</body>
+</html>
